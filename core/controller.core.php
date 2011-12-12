@@ -12,7 +12,8 @@ abstract class Controller {
 
 	public function dispatch(){
 		if(method_exists($this, $this->view)){
-			$this->$view();
+			$viewFunction = $this->view;
+			$this->$viewFunction();
 		}
 
 		$this->render();
@@ -21,8 +22,8 @@ abstract class Controller {
 	public function render(){
 		extract($this->args);
 
-		if(file_exists(ROOT_PATH.'/views/'.$this->controllerName.$this->view.".view.php")){
-			include(ROOT_PATH.'/views/'.$this->controllerName.".".$this->view.".view.php");
+		if(file_exists(ROOT_DIR.'/views/'.$this->controllerName.$this->view.".view.php")){
+			include(ROOT_DIR.'/views/'.$this->controllerName.".".$this->view.".view.php");
 		}
 	}
 
