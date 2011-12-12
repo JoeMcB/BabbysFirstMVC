@@ -21,8 +21,8 @@ abstract class Controller {
 
 	public function render(){
 		extract($this->args);
-
-		if(file_exists(ROOT_DIR.'/views/'.$this->controllerName.$this->view.".view.php")){
+		
+		if(file_exists(ROOT_DIR.'/views/'.$this->controllerName.".".$this->view.".view.php")){
 			include(ROOT_DIR.'/views/'.$this->controllerName.".".$this->view.".view.php");
 		}
 	}
